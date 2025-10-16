@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+// Constantes para melhor legibilidade
+#define FATOR_SUBTRAIR 32.0
+#define FATOR_MULTIPLICAR (5.0/9.0)
+
+int main() {
+    double temperatura_fahrenheit;
+    double temperatura_celsius;
+    
+    // Entrada de dados com validação
+    printf("Digite a temperatura em graus Fahrenheit: ");
+    
+    if (scanf("%lf", &temperatura_fahrenheit) != 1) {
+        printf("Erro: Valor inválido inserido.\n");
+        return 1; // Código de erro
+    }
+    
+    // Cálculo da conversão
+    temperatura_celsius = (temperatura_fahrenheit - FATOR_SUBTRAIR) * FATOR_MULTIPLICAR;
+    
+    // Saída formatada
+    printf("\n%.2f°F equivalem a %.2f°C\n", 
+           temperatura_fahrenheit, temperatura_celsius);
+    
+    // Informações adicionais úteis
+    printf("\n--- Pontos de Referência ---\n");
+    printf("0°F = %.2f°C\n", (0.0 - FATOR_SUBTRAIR) * FATOR_MULTIPLICAR);
+    printf("32°F = %.2f°C\n", (32.0 - FATOR_SUBTRAIR) * FATOR_MULTIPLICAR);
+    printf("212°F = %.2f°C\n", (212.0 - FATOR_SUBTRAIR) * FATOR_MULTIPLICAR);
+    
+    return 0;
+}
